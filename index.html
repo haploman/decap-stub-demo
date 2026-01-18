@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decap Stub Demo</title>
+  <style>
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:40px;max-width:900px;line-height:1.5}
+    .card{border:1px solid #e5e7eb;border-radius:16px;padding:24px;background:#fafafa}
+    .muted{color:#6b7280}
+    .btn{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:12px;border:1px solid #e5e7eb;text-decoration:none;color:#111;background:white}
+    code{background:#f1f5f9;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">Loading…</h1>
+    <p id="tagline" class="muted"></p>
+    <p>This is a tiny static “stub” site whose content is editable via Decap CMS at <code>/admin</code>.</p>
+    <a class="btn" href="/admin">Open Editor</a>
+  </div>
+
+  <script>
+    fetch('/content/home.json', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('title').textContent = data.title || 'Untitled Stub';
+        document.getElementById('tagline').textContent = data.tagline || '';
+        document.title = data.title || 'Decap Stub Demo';
+      })
+      .catch(() => {
+        document.getElementById('title').textContent = 'Decap Stub Demo';
+        document.getElementById('tagline').textContent = 'Could not load content.';
+      });
+  </script>
+</body>
+</html>
