@@ -1,7 +1,5 @@
 backend:
-  name: github
-  repo: haploman/decap-stub-demo
-  branch: main
+  name: test-repo
 
 media_folder: "images"
 public_folder: "/images"
