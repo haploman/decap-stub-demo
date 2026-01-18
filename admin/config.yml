@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USER_OR_ORG/YOUR_REPO_NAME
+  repo: haploman/decap-stub-demo
   branch: main
 
 media_folder: "images"
